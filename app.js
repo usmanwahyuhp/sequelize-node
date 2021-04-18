@@ -3,12 +3,10 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const { Sequelize } = require('sequelize');
-const db = new Sequelize('codegig', 'postgres', '123456789', {
-    host: 'localhost',
-    dialect: 'postgres',
-});
+//database connection
+const db = require('./config/database');
 
+//tes db conn
 db.authenticate()
     .then(() => console.log('database connected slur!'))
     .catch(err => console.log('error :' + err))
